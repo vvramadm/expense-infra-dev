@@ -17,11 +17,7 @@ variable "key_name" {
 
 }
 
-variable "rds_tags" {
-  default = {
-    component = "mysql"
-  }
-}
+
 
 variable "backend_tags" {
   
@@ -29,6 +25,14 @@ variable "backend_tags" {
     component = "backend"
   }
 }
+
+variable "component" {
+  
+  default = {
+    component = "backend"
+  }
+}
+
 
 variable "common_tags" {
   default = {

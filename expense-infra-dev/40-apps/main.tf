@@ -7,6 +7,7 @@ module "mysql"{
   key_name               = var.key_name
   
   #monitoring             = true
+  create_security_group = false
   vpc_security_group_ids = [local.mysql_sg_id]
   subnet_id              = local.database_subnet_ids
 
@@ -25,6 +26,7 @@ module "backend" {
   instance_type          = var.instance_type
   key_name               = var.key_name
   #monitoring             = true
+  create_security_group = false
   vpc_security_group_ids = [local.backend_sg_id]
   subnet_id              = local.private_subnet_ids
 
@@ -43,6 +45,7 @@ module "frontend"{
   instance_type          = var.instance_type
   key_name               = var.key_name
   #monitoring             = true
+  create_security_group = false
   vpc_security_group_ids = [local.frontend_sg_id]
   subnet_id              = local.public_subnet_ids
 
@@ -91,6 +94,7 @@ module "ansible"{
   instance_type          = var.instance_type
   key_name               = var.key_name
   #monitoring             = true
+  create_security_group = false
   vpc_security_group_ids = [local.ansible_sg_id]
   subnet_id              = local.public_subnet_ids
   user_data = file("expense.sh")
